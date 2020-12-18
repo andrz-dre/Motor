@@ -13,8 +13,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test-junit"))
     implementation("com.google.code.gson:gson:2.8.6")
+
+    testImplementation(kotlin("test-junit"))
 }
 
 tasks.test {
@@ -27,4 +28,17 @@ tasks.withType<KotlinCompile>() {
 
 application {
     mainClassName = "MainKt"
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+
+    from(sourceSets.main.get().output)
+
+    dependsOn(configurations.runtimeClasspath)
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }

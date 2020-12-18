@@ -1,0 +1,13 @@
+#!/bin/bash
+
+apib_file=$1
+save_dir=$2
+
+echo "Parsing APIB File"
+./drafter "$apib_file" -f json  -o tmp_draft.txt
+echo "Finished Parsing File"
+
+echo "Generating Files"
+java -jar Motor-1.0-SNAPSHOT.jar -p tmp_draft.txt -s "$save_dir"
+rm -f tmp_draft.txt
+
