@@ -30,7 +30,7 @@ class ModelGenerator {
         }
 
         KotlinFileGen().also {
-            it.generate("${config.className}.swift", builder.toString(), config.path)
+            it.generate("${config.className}$suffix.swift", builder.toString(), config.path)
         }
         print("File has been generated")
     }
