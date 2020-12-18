@@ -249,13 +249,10 @@ class JsonToKotlinBuilder {
     }
 
 
-    fun build(input: String,
-              className: String): String {
-
+    fun build(input: String, className: String): String {
         val imports = ClassImportDeclaration.applyImportClassDeclarationInterceptors(
                 InterceptorManager.getEnabledImportClassDeclarationInterceptors()
         )
-
         val classCode = KotlinClassCodeMaker(
                 KotlinClassMaker(
                         className,
@@ -274,7 +271,6 @@ class JsonToKotlinBuilder {
         } else {
             importsAndClassCode
         }
-
     }
 
     fun setPackageName(packageName: String): JsonToKotlinBuilder {
