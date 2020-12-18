@@ -49,11 +49,8 @@ object ClassNameSuffixSupport : Extension() {
                 }
 
                 val newProperties = kotlinClass.properties.mapIndexed { index, property ->
-
                     val newType = newPropertyTypes[index]
-
                     val newValue = newPropertyDefaultValues[index]
-
                     property.copy(type = newType, value = newValue)
                 }
                 kotlinClass.copy(name = originName + suffix, properties = newProperties)
