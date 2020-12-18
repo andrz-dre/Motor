@@ -1,3 +1,7 @@
+/*
+ json Location : /Users/ovo/JsonTesting/testing.json
+ /Users/ovo/IdeaProjects/Motor/src/main/kotlin
+* */
 import Arguments.FILE_PATH
 import Arguments.HELP
 import Arguments.SAVE_PATH

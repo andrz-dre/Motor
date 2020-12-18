@@ -13,9 +13,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.google.code.gson:gson:2.8.6")
-
     testImplementation(kotlin("test-junit"))
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("io.outfoxx:swiftpoet:1.0.0")
 }
 
 tasks.test {

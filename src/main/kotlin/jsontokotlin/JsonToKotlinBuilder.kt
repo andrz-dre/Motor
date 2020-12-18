@@ -253,12 +253,8 @@ class JsonToKotlinBuilder {
         val imports = ClassImportDeclaration.applyImportClassDeclarationInterceptors(
                 InterceptorManager.getEnabledImportClassDeclarationInterceptors()
         )
-        val classCode = KotlinClassCodeMaker(
-                KotlinClassMaker(
-                        className,
-                        input
-                ).makeKotlinClass() as DataClass
-        ).makeKotlinClassCode()
+        val dataClass = KotlinClassMaker(className, input).makeKotlinClass() as DataClass
+        val classCode = KotlinClassCodeMaker(dataClass).makeKotlinClassCode()
 
         val importsAndClassCode = if (imports.isNotBlank()) {
             "$imports\n\n$classCode"
